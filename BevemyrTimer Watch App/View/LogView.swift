@@ -14,7 +14,7 @@ struct LogView: View {
         if log.isEmpty {
             Text("No times stored")
         } else {
-            List($log) { logitem in
+            List($log.reversed()) { logitem in
                 LogItemView(logitem: logitem)
             }
         }

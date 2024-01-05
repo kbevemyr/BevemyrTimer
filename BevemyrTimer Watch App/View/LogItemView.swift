@@ -16,7 +16,7 @@ struct LogItemView: View {
             Text(dateString(date:logitem.when)).font(.footnote)
             Text(timeString(time: logitem.tee)).font(.caption)
             Text(timeString(time: logitem.bakkant)).font(.caption)
-        }
+        }.listRowBackground(Color.blue)
     }
     
     var dateFormat: DateFormatter {
