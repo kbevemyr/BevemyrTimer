@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct BevemyrTimer_Watch_AppApp: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

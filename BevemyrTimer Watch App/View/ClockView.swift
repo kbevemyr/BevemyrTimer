@@ -1,0 +1,102 @@
+//
+//  ClockView.swift
+//  BevemyrTimer Watch App
+//
+//  Created by Katrin Boberg Bevemyr on 2023-12-30.
+//
+
+import SwiftUI
+
+struct ClockView: View {
+    @State private var isRunning: Bool = false
+    @State private var now: Date = Date()
+ 
+    @State private var zero: UInt64 = DispatchTime.now().uptimeNanoseconds
+    @State private var currentTime: UInt64 = 0
+    let timer = Timer.publish(every: 0.001, on: .main, in: .common).autoconnect()
+    
+    @Binding var log: [LogItem]
+    @State private var logpostcounter:Int = 0
+
+    
+    var body: some View {
+        
+        VStack {
+            if self.isRunning {
+                Button(action: {
+                    let teetime = Double(Int64(bitPattern: currentTime))
+                    let bakkanttime = calcBakkantTime(tee: teetime)
+                    let newPost = LogItem(id: logpostcounter, when: now, bakkant: bakkanttime, tee: teetime)
+                    log.append(newPost)
+                    logpostcounter += 1
+                    self.isRunning.toggle()
+                }) {
+                    VStack {
+                        Text("Stop").font(.largeTitle)
+                        Spacer()
+                        Text("\(currentTime)").font(.title)
+                            .onReceive(timer) { _ in
+                                self.updateTime()
+                            }
+                    }
+                }
+                .background(Color.green)
+            } else
+            {
+                Button(action: {
+                    self.isRunning.toggle()
+                    initTime()
+                }) {
+                    VStack {
+                        Text("Start").font(.largeTitle)
+                        Spacer()
+                        Text("Tee: "+timeString(time: Double(currentTime))).font(.title)
+                    }
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                .background(Color.red)
+            }
+        }
+        
+    }
+    
+    func timeString(time: Double) -> String {
+        let time = String(format: "%.2f", time/1000)
+        return time
+    }
+    
+    private func initTime() {
+        self.zero = DispatchTime.now().uptimeNanoseconds
+        self.currentTime = 0
+        self.now = Date.init()
+    }
+    
+    private func updateTime() {
+        // You can use your preferred method to get the current time in milliseconds.
+        // Here, we are using DispatchTime to calculate the time difference.
+        let currentTimeNanos = DispatchTime.now().uptimeNanoseconds - zero
+        let currentTimeMillis = currentTimeNanos / 1_000_000
+        self.currentTime = currentTimeMillis
+    }
+    
+    /*
+     T2 = T1 * 1.256
+     T2 = T1 * 0.778
+     */
+    
+    private func calcTeeTime(bakkant: Double) -> Double {
+        return bakkant * 0.778
+    }
+    
+    private func calcBakkantTime(tee: Double) -> Double {
+        return tee * 1.256
+    }
+    
+    struct ClockView_Previews: PreviewProvider {
+        static var previews: some View {
+            let samplelog: [LogItem] = [LogItem(id: 1, when: Date.init(), bakkant: 2.34, tee: 3.33),
+                                        LogItem(id: 1, when: Date.init(), bakkant: 3.34, tee: 4.33)]
+            return ClockView(log: .constant(samplelog))
+        }
+    }
+}

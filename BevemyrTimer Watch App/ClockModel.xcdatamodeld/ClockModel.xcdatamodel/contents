@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22D49" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Clock" representedClassName="Clock" syncable="YES" codeGenerationType="class">
+        <attribute name="state" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Log" representedClassName="Log" syncable="YES" codeGenerationType="class">
+        <relationship name="member" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LogItem"/>
+    </entity>
+    <entity name="LogItem" representedClassName="LogItem" syncable="YES" codeGenerationType="class">
+        <attribute name="bakkant" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="tee" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+</model>

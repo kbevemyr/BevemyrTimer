@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54420C712B40768C00BCD559 /* ClockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54420C702B40768C00BCD559 /* ClockModel.swift */; };
+		54420C732B4078F700BCD559 /* LogItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54420C722B4078F700BCD559 /* LogItemModel.swift */; };
+		54420C772B409DFD00BCD559 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54420C762B409DFD00BCD559 /* LogView.swift */; };
+		54420C7A2B409F0100BCD559 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54420C782B409E5000BCD559 /* ClockView.swift */; };
+		54420C7C2B40A0C100BCD559 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54420C7B2B40A0C100BCD559 /* DataModel.swift */; };
+		54420C7E2B44554300BCD559 /* LogItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54420C7D2B44554300BCD559 /* LogItemView.swift */; };
 		54F259152B3B2CB10041F709 /* BevemyrTimer Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 54F259142B3B2CB10041F709 /* BevemyrTimer Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		54F2591A2B3B2CB10041F709 /* BevemyrTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F259192B3B2CB10041F709 /* BevemyrTimerApp.swift */; };
 		54F2591C2B3B2CB10041F709 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F2591B2B3B2CB10041F709 /* ContentView.swift */; };
@@ -56,6 +62,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		54420C702B40768C00BCD559 /* ClockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockModel.swift; sourceTree = "<group>"; };
+		54420C722B4078F700BCD559 /* LogItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogItemModel.swift; sourceTree = "<group>"; };
+		54420C762B409DFD00BCD559 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
+		54420C782B409E5000BCD559 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
+		54420C7B2B40A0C100BCD559 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		54420C7D2B44554300BCD559 /* LogItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogItemView.swift; sourceTree = "<group>"; };
 		54F2590E2B3B2CB10041F709 /* BevemyrTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BevemyrTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54F259142B3B2CB10041F709 /* BevemyrTimer Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BevemyrTimer Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54F259192B3B2CB10041F709 /* BevemyrTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BevemyrTimerApp.swift; sourceTree = "<group>"; };
@@ -94,6 +106,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54420C742B409C6000BCD559 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				54420C702B40768C00BCD559 /* ClockModel.swift */,
+				54420C722B4078F700BCD559 /* LogItemModel.swift */,
+				54420C7B2B40A0C100BCD559 /* DataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		54420C752B409C9A00BCD559 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54F2591B2B3B2CB10041F709 /* ContentView.swift */,
+				54420C782B409E5000BCD559 /* ClockView.swift */,
+				54420C762B409DFD00BCD559 /* LogView.swift */,
+				54420C7D2B44554300BCD559 /* LogItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		54F259072B3B2CB00041F709 = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				54F259192B3B2CB10041F709 /* BevemyrTimerApp.swift */,
-				54F2591B2B3B2CB10041F709 /* ContentView.swift */,
+				54420C752B409C9A00BCD559 /* View */,
+				54420C742B409C6000BCD559 /* Model */,
 				54F2591D2B3B2CB20041F709 /* Assets.xcassets */,
 				54F2591F2B3B2CB20041F709 /* Preview Content */,
 			);
@@ -309,7 +343,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54420C7E2B44554300BCD559 /* LogItemView.swift in Sources */,
+				54420C7C2B40A0C100BCD559 /* DataModel.swift in Sources */,
+				54420C732B4078F700BCD559 /* LogItemModel.swift in Sources */,
+				54420C7A2B409F0100BCD559 /* ClockView.swift in Sources */,
+				54420C712B40768C00BCD559 /* ClockModel.swift in Sources */,
 				54F2591C2B3B2CB10041F709 /* ContentView.swift in Sources */,
+				54420C772B409DFD00BCD559 /* LogView.swift in Sources */,
 				54F2591A2B3B2CB10041F709 /* BevemyrTimerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
