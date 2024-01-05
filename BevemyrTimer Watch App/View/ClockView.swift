@@ -17,44 +17,56 @@ struct ClockView: View {
     
     @Binding var log: [LogItem]
     @State private var logpostcounter:Int = 0
-
     
+    let red = Color(red: 130/255, green: 51/255, blue:46/255) // 82332E 130 51 46
+    let green = Color(red: 46/255, green: 139/255, blue: 74/255) // 2E824A 46 139 74
+
+
     var body: some View {
         
         VStack {
             if self.isRunning {
-                Button(action: {
+                Rectangle()
+                .fill(green)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .onTapGesture {
+                    // Action to perform when the rectangle is tapped
                     let teetime = Double(Int64(bitPattern: currentTime))
                     let bakkanttime = calcBakkantTime(tee: teetime)
                     let newPost = LogItem(id: logpostcounter, when: now, bakkant: bakkanttime, tee: teetime)
                     log.append(newPost)
                     logpostcounter += 1
                     self.isRunning.toggle()
-                }) {
+                }
+                .overlay(
                     VStack {
                         Text("Stop").font(.largeTitle)
-                        Spacer()
+                        //Spacer()
                         Text("\(currentTime)").font(.title)
                             .onReceive(timer) { _ in
                                 self.updateTime()
                             }
                     }
-                }
-                .background(Color.green)
-            } else
-            {
-                Button(action: {
+                ).foregroundColor(Color.white)
+            } else {
+                Rectangle()
+                    .fill(red)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .onTapGesture {
+                    // Action to perform when the rectangle is tapped
                     self.isRunning.toggle()
                     initTime()
-                }) {
+                }
+                .overlay(
                     VStack {
                         Text("Start").font(.largeTitle)
-                        Spacer()
-                        Text("Tee: "+timeString(time: Double(currentTime))).font(.title)
+                        //Spacer()
+                        if currentTime != 0 {
+                            Text("Tee: "+timeString(time: Double(currentTime))).font(.title)
+                            Text("Bakkant:"+timeString(time: calcBakkantTime(tee: Double(currentTime))))
+                        }
                     }
-                }
-                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
-                .background(Color.red)
+                ).foregroundColor(Color.white)
             }
         }
         

@@ -14,13 +14,7 @@ struct ContentView: View {
         TabView {
             NavigationStack {
                 ClockView(log: $log)
-                /*
-                 NavigationLink(destination: LogView(log: $log)) {
-                 Text("Show Log")
-                 }
-                 */
             }
-            //.statusBar(hidden: true)
             NavigationStack {
                 LogView(log: $log)
             }

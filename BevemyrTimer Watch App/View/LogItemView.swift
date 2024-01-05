@@ -13,9 +13,9 @@ struct LogItemView: View {
     
     var body: some View {
         HStack {
-            Text(dateString(date:logitem.when)).italic()
-            Text(timeString(time: logitem.tee)).bold()
-            Text(timeString(time: logitem.bakkant)).bold()
+            Text(dateString(date:logitem.when)).font(.footnote)
+            Text(timeString(time: logitem.tee)).font(.caption)
+            Text(timeString(time: logitem.bakkant)).font(.caption)
         }
     }
     
