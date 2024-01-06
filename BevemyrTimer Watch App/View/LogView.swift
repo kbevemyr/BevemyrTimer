@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LogView: View {
     @Binding var log: [LogItem]
-    
+        
     var body: some View {
         if log.isEmpty {
             Text("No times stored")

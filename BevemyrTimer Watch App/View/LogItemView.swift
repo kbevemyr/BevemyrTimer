@@ -11,12 +11,18 @@ struct LogItemView: View {
     
     @Binding var logitem:LogItem
     
+    let blue1 = Color(red: 0/255, green: 50/255, blue:107/255) // 0 50 107
+    let blue2 = Color(red: 33/255, green: 124/255, blue:230/255)
+    let blue3 = Color(red: 0/255, green: 50/255, blue:107/255)
+    
     var body: some View {
         HStack {
             Text(dateString(date:logitem.when)).font(.footnote)
-            Text(timeString(time: logitem.tee)).font(.caption)
-            Text(timeString(time: logitem.bakkant)).font(.caption)
-        }.listRowBackground(Color.blue)
+            Spacer()
+            Text(timeString(time: logitem.tee)).font(.title3)
+            Spacer()
+            Text(timeString(time: logitem.bakkant)).font(.title3)
+        }.listRowBackground(blue3)
     }
     
     var dateFormat: DateFormatter {
