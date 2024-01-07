@@ -18,8 +18,8 @@ struct ClockView: View {
     @Binding var log: [LogItem]
     @State private var logpostcounter:Int = 0
     
-    let red = Color(red: 130/255, green: 51/255, blue:46/255) // 82332E 130 51 46
-    let green = Color(red: 46/255, green: 139/255, blue: 74/255) // 2E824A 46 139 74
+    let red = Color(UIColor(named: "StartColor")!) // #82332E
+    let green = Color(UIColor(named: "StopColor")!) // #2E824A
 
 
     var body: some View {
@@ -68,6 +68,7 @@ struct ClockView: View {
                     }
                 ).foregroundColor(Color.white)
             }
+            Text("by Bevemyr").font(.footnote)
         }
         
     }

@@ -13,7 +13,7 @@ struct LogItemView: View {
     
     let blue1 = Color(red: 0/255, green: 50/255, blue:107/255) // 0 50 107
     let blue2 = Color(red: 33/255, green: 124/255, blue:230/255)
-    let blue3 = Color(red: 0/255, green: 50/255, blue:107/255)
+    let blue3 = Color(UIColor(named: "LogItemColor")!)
     
     var body: some View {
         HStack {

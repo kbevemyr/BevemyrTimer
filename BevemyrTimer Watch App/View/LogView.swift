@@ -14,8 +14,11 @@ struct LogView: View {
         if log.isEmpty {
             Text("No times stored")
         } else {
-            List($log.reversed()) { logitem in
-                LogItemView(logitem: logitem)
+            VStack {
+                List($log.reversed()) { logitem in
+                    LogItemView(logitem: logitem)
+                }
+                Text("by Bevemyr").font(.footnote)
             }
         }
     }
